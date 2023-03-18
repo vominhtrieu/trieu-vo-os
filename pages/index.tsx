@@ -11,6 +11,7 @@ import SystemContext from "@/contexts/system";
 import Education from "@/components/Education";
 import About from "@/components/About";
 import Experiences from "@/components/Experiences";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,6 +43,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <FileManager title="File Manager" visible={fileManagerVisible} onClose={() => setFileManagerVisible(false)} />
       <Education title="Education" visible={educationVisible} onClose={() => {
         setEducationVisible(false);
@@ -58,6 +60,7 @@ export default function Home() {
       <Box
         width="100vw"
         height="100vh"
+        paddingTop="45px"
         overflow="hidden"
         backgroundImage="url('/wallpaper.jpeg')"
         backgroundSize="cover"
@@ -68,7 +71,7 @@ export default function Home() {
           icon="/file-manager.svg"
           onClick={() => setFileManagerVisible(true)}
         />
-        <DesktopShortcut title="CV" icon="/file.svg" onClick={() =>{
+        <DesktopShortcut title="CV" icon="/file.svg" onClick={() => {
           setSelectedPDF("/cv.pdf");
         }} />
       </Box>
