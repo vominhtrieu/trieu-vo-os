@@ -32,6 +32,7 @@ export default function Toolbar() {
         zIndex={99999}
       >
         <Box
+          id="toolbar"
           width="fit-content"
           height="100%"
           display="flex"
@@ -47,22 +48,22 @@ export default function Toolbar() {
           <ToolbarShortcut title="Menu" icon="/menu.svg" selected={false} onClick={
             () => setMenuVisible(visible => !visible)
           } />
-          <ToolbarShortcut title="File Manager" icon="/file-manager.svg" selected={
+          <ToolbarShortcut id="finder" title="File Manager" icon="/file-manager.svg" selected={
             fileManagerVisible
           } onClick={() => {
             setFileManagerVisible(true);
           }} />
-          <ToolbarShortcut title="Education" icon="/education.svg" selected={
+          <ToolbarShortcut id="education" title="Education" icon="/education.svg" selected={
             educationVisible
           } onClick={() => {
             setEducationVisible(true);
           }} />
-          <ToolbarShortcut title="Experiences" icon="/office-building.svg" selected={
+          <ToolbarShortcut id="experiences" title="Experiences" icon="/office-building.svg" selected={
             experienceVisible
           } onClick={() => {
             setExperienceVisible(true);
           }} />
-          <ToolbarShortcut title="About" icon="/information.svg" selected={
+          <ToolbarShortcut id="about" title="About" icon="/information.svg" selected={
             aboutVisible
           } onClick={() => {
             setAboutVisible(true);

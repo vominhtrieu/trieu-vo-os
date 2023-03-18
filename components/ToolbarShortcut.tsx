@@ -1,15 +1,17 @@
 import { Box, Button, Image } from "@chakra-ui/react";
 
 interface ToolbarShortcutProps {
+  id?: string;
   title: string;
   icon: string;
   selected: boolean;
   onClick?: () => void;
 }
 
-export function ToolbarShortcut({ title, icon, selected, onClick }: ToolbarShortcutProps) {
+export function ToolbarShortcut({ id, title, icon, selected, onClick }: ToolbarShortcutProps) {
   return (
     <Button
+      id={id}
       width="45px"
       height="45px"
       display="flex"

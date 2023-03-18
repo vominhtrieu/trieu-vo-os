@@ -1,17 +1,24 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
+function formatNumber(number: Number) {
+    if (number < 10) {
+        return "0" + number;
+    }
+    return number + "";
+}
+
 export default function Header() {
     const [dateStr, setDateStr] = useState("");
 
     useEffect(() => {
         setInterval(() => {
             const date = new Date();
-            const day = date.getDate();
-            const month = date.getMonth() + 1;
-            const year = date.getFullYear();
-            const hours = date.getHours();
-            const minutes = date.getMinutes();
+            const day = formatNumber(date.getDate());
+            const month = formatNumber(date.getMonth() + 1);
+            const year = formatNumber(date.getFullYear());
+            const hours = formatNumber(date.getHours());
+            const minutes = formatNumber(date.getMinutes());
             setDateStr(`${day}/${month}/${year} ${hours}:${minutes}`);
         }, 1000);
     }, [])

@@ -1,10 +1,51 @@
 import { Box, Button, Heading, Text, Image } from "@chakra-ui/react";
+import { Steps } from "intro.js-react";
+import { useState } from "react";
 
 interface ToolbarMenuProps {
     visible: boolean;
 }
 
+const INTRO_STEPS = [
+    {
+        element: '#desktop',
+        intro: 'This is the desktop, you can find common applications here',
+        position: 'right',
+        tooltipClass: 'myTooltipClass',
+        highlightClass: 'myHighlightClass',
+    },
+    {
+        element: '#toolbar',
+        intro: "The taskbar is where you can access both pinned and currently opened applications",
+    },
+    {
+        element: '#toolbar',
+        intro: "A dot at the bottom of an app's icon indicates that it is currently open",
+    },
+    {
+        element: '#finder',
+        intro: 'This is the finder where you can find common shortcut and contact information',
+    },
+    {
+        element: '#education',
+        intro: 'You can view my education here',
+    },
+    {
+        element: '#experiences',
+        intro: 'You can view my experiences here',
+    },
+    {
+        element: '#about',
+        intro: 'You can view my common information here',
+    },
+    {
+        intro: 'That concludes the introduction. I hope you found it enjoyable.',
+    },
+];
+
 export default function ToolbarMenu({ visible }: ToolbarMenuProps) {
+    const [stepsEnabled, setStepsEnabled] = useState(false);
+
     return <Box
         height={200}
         position="fixed"
@@ -15,6 +56,12 @@ export default function ToolbarMenu({ visible }: ToolbarMenuProps) {
         bottom={90}
         zIndex={99999}
     >
+        <Steps
+            enabled={stepsEnabled}
+            steps={INTRO_STEPS}
+            initialStep={0}            
+            onExit={() => setStepsEnabled(false)}
+        />
         <Box
             width="400px"
             height="100%"
@@ -51,7 +98,13 @@ export default function ToolbarMenu({ visible }: ToolbarMenuProps) {
                     outline="none"
                     marginTop={10}
                     _active={{
-                        opacity: 0.9
+                        opacity: 0.9,
+                    }}
+                    _hover={{
+                        cursor: "pointer",
+                    }}
+                    onClick={() => {
+                        setStepsEnabled(true)
                     }}
                 >
                     Show me around

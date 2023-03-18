@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import { Box } from "@chakra-ui/react";
 import Toolbar from "@/components/Toolbar";
@@ -12,6 +11,7 @@ import Education from "@/components/Education";
 import About from "@/components/About";
 import Experiences from "@/components/Experiences";
 import Header from "@/components/Header";
+import 'intro.js/introjs.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,9 +58,11 @@ export default function Home() {
         setExperienceVisible(false);
       }} />
       <Box
+        id="desktop"
         width="100vw"
         height="100vh"
-        paddingTop="45px"
+        padding="15px"
+        paddingTop="50px"
         overflow="hidden"
         backgroundImage="url('/wallpaper.jpeg')"
         backgroundSize="cover"
