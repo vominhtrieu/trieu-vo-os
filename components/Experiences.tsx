@@ -19,9 +19,6 @@ export default function Experiences(props: WindowProps) {
                             Implement a payment system for using Shopify and standalone stores
                         </ListItem>
                         <ListItem>
-                            Work with multiple teams using Notion fortechnical documents
-                        </ListItem>
-                        <ListItem>
                             Technologies used: Python, React.Js, Next.Js, Django, Node.Js, Stripe, Charkra UI.
                         </ListItem>
                     </UnorderedList>
