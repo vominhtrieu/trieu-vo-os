@@ -1,10 +1,10 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
     const [dateStr, setDateStr] = useState("");
 
-    useState(() => {
+    useEffect(() => {
         setInterval(() => {
             const date = new Date();
             const day = date.getDate();
