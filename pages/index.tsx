@@ -83,9 +83,13 @@ export default function Home() {
         <DesktopShortcut
           title="Finder"
           icon="/file-manager.svg"
-          onClick={() => setFileManagerVisible(true)}
+          onClick={() => {
+            setSelectedWindow(document.getElementById("finderWindow"));
+            setFileManagerVisible(true)
+          }}
         />
         <DesktopShortcut title="CV" icon="/file.svg" onClick={() => {
+          setSelectedWindow(document.getElementById("pdfViewerWindow"));
           setSelectedPDF("/cv.pdf");
         }} />
       </Box>

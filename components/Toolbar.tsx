@@ -76,7 +76,9 @@ export default function Toolbar() {
             setAboutVisible(true);
           }} />
           <Box width={selectedPDF ? "55px" : "0px"} overflow="hidden" transition="all 1s">
-            <ToolbarShortcut title="PDF Viewer" selected={true} icon="/pdf.svg" />
+            <ToolbarShortcut title="PDF Viewer" selected={true} icon="/pdf.svg" onClick={() => {
+              setSelectedWindow(document.getElementById("pdfViewerWindow"));
+            }} />
           </Box>
         </Box>
       </Box>
