@@ -78,7 +78,7 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
             border="1px solid #202020"
             boxShadow="0 0 10px 0 rgb(0 0 0 / 50%)"
             opacity={visible ? 1 : 0}
-            transition="all 0.5s ease-in-out"
+            transition="opacity 0.5s ease-in-out"
             onClick={() => {
                 refreshZIndex();
             }}
