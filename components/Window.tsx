@@ -1,6 +1,6 @@
 import SystemContext from "@/contexts/system";
 import { Box, Image, Heading, Button } from "@chakra-ui/react";
-import { PropsWithChildren, useContext, useEffect, useRef, useState } from "react";
+import { PropsWithChildren, useContext, useEffect, useRef } from "react";
 
 export interface WindowProps {
     id: string;
@@ -73,7 +73,6 @@ export default function Window({ id, icon, title, visible, onClose, disableScrol
         >
             <Box
                 ref={header}
-                draggable={false}
                 width="100%"
                 height="50px"
                 background="#202020"
@@ -82,10 +81,8 @@ export default function Window({ id, icon, title, visible, onClose, disableScrol
                 alignItems="center"
                 padding="0 20px"
                 cursor="move"
-                zIndex={9999}
             >
-                <Box display="flex" alignItems="center"
-                    draggable={false}>
+                <Box display="flex" alignItems="center">
                     <Image
                         width="35"
                         height="35px"

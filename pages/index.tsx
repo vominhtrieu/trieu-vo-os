@@ -76,7 +76,7 @@ export default function Home() {
         padding="15px"
         paddingTop="50px"
         overflow="hidden"
-        backgroundImage="url('/wallpaper.jpeg')"
+        backgroundImage="url('/wallpaper.jpg')"
         backgroundSize="cover"
         backgroundPosition="center"
       >

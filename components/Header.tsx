@@ -1,11 +1,11 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-function formatNumber(number: Number) {
-    if (number < 10) {
-        return "0" + number;
+function formatNumber(n: number) {
+    if (n < 10) {
+        return "0" + n;
     }
-    return number + "";
+    return n + "";
 }
 
 export default function Header() {
