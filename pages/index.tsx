@@ -4,7 +4,7 @@ import { Box } from "@chakra-ui/react";
 import Toolbar from "@/components/Toolbar";
 import { DesktopShortcut } from "@/components/DesktopShortcut";
 import FileManager from "@/components/FileManager";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PDFViewer from "@/components/PDFViewer";
 import SystemContext from "@/contexts/system";
 import Education from "@/components/Education";
@@ -17,15 +17,27 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [maxZIndex, setMaxZIndex] = useState(10);
+  const [selectedWindow, setSelectedWindow] = useState<HTMLElement | null>(null);
   const [fileManagerVisible, setFileManagerVisible] = useState(false);
   const [selectedPDF, setSelectedPDF] = useState("");
   const [educationVisible, setEducationVisible] = useState(false);
   const [aboutVisible, setAboutVisible] = useState(false);
   const [experienceVisible, setExperienceVisible] = useState(false);
+
+  useEffect(() => {
+    if (!selectedWindow) {
+      return;
+    }
+    selectedWindow.style.zIndex = (maxZIndex + 1) + "";
+    setMaxZIndex(maxZIndex + 1);
+    // eslint-disable-next-line
+  }, [selectedWindow]);
   return (
     <SystemContext.Provider value={{
       maxZIndex,
       setMaxZIndex,
+      selectedWindow,
+      setSelectedWindow,
       fileManagerVisible,
       setFileManagerVisible,
       selectedPDF,
@@ -44,17 +56,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <FileManager title="File Manager" visible={fileManagerVisible} onClose={() => setFileManagerVisible(false)} />
-      <Education title="Education" visible={educationVisible} onClose={() => {
+      <FileManager id="finderWindow" title="File Manager" visible={fileManagerVisible} onClose={() => setFileManagerVisible(false)} />
+      <Education id="educationWindow" title="Education" visible={educationVisible} onClose={() => {
         setEducationVisible(false);
       }} />
-      <PDFViewer fileUrl={selectedPDF} title="PDF Viewer" visible={selectedPDF.length > 0} onClose={() => {
+      <PDFViewer id="pdfViewerWindow" fileUrl={selectedPDF} title="PDF Viewer" visible={selectedPDF.length > 0} onClose={() => {
         setSelectedPDF("");
       }} />
-      <About title="About me" visible={aboutVisible} onClose={() => {
+      <About id="aboutWindow" title="About me" visible={aboutVisible} onClose={() => {
         setAboutVisible(false);
       }} />
-      <Experiences title="Experiences" visible={experienceVisible} onClose={() => {
+      <Experiences id="experiencesWindow" title="Experiences" visible={experienceVisible} onClose={() => {
         setExperienceVisible(false);
       }} />
       <Box

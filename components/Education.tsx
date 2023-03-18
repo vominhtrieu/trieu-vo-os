@@ -5,7 +5,7 @@ export default function Education(props: WindowProps) {
     return (
         <Window icon="/education.svg" {...props}>
             <Box width="100%" display="flex" alignItems="center" flexDirection="column">
-                <Image src="/HCMUS.jpg" width="200px" alt="HCMUS Logo" />
+                <Image marginTop={5} src="/HCMUS.jpg" width="200px" alt="HCMUS Logo" />
                 <Heading color="black" textAlign="center" marginBottom={5}>Ho Chi Minh University of Science</Heading>
                 <Text color="#333333" fontSize={20}>Vietnam National University</Text>
                 <Text color="#333333" fontSize={18} marginTop={10} fontWeight={600}>Bachelor Degree of Software Engineering</Text>

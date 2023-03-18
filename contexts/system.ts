@@ -3,6 +3,8 @@ import { createContext } from "react";
 interface SystemContextType {
     maxZIndex: number;
     setMaxZIndex: (zIndex: number) => void;
+    selectedWindow: HTMLElement | null;
+    setSelectedWindow: (w: HTMLElement | null) => void;
     fileManagerVisible: boolean;
     setFileManagerVisible: (open: boolean) => void;
     selectedPDF: string;
@@ -18,6 +20,8 @@ interface SystemContextType {
 const SystemContext = createContext<SystemContextType>({
     maxZIndex: 1000,
     setMaxZIndex: () => { },
+    selectedWindow: null,
+    setSelectedWindow: () => { },
     fileManagerVisible: false,
     setFileManagerVisible: () => { },
     selectedPDF: "",

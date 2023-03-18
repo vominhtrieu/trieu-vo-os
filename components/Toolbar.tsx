@@ -15,6 +15,7 @@ export default function Toolbar() {
     selectedPDF,
     experienceVisible,
     setExperienceVisible,
+    setSelectedWindow,
   } = useContext(SystemContext);
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -46,26 +47,32 @@ export default function Toolbar() {
           position="relative"
         >
           <ToolbarShortcut title="Menu" icon="/menu.svg" selected={false} onClick={
-            () => setMenuVisible(visible => !visible)
+            () => {
+              setMenuVisible(visible => !visible)
+            }
           } />
           <ToolbarShortcut id="finder" title="File Manager" icon="/file-manager.svg" selected={
             fileManagerVisible
           } onClick={() => {
+            setSelectedWindow(document.getElementById("finderWindow"));
             setFileManagerVisible(true);
           }} />
           <ToolbarShortcut id="education" title="Education" icon="/education.svg" selected={
             educationVisible
           } onClick={() => {
+            setSelectedWindow(document.getElementById("educationWindow"));
             setEducationVisible(true);
           }} />
           <ToolbarShortcut id="experiences" title="Experiences" icon="/office-building.svg" selected={
             experienceVisible
           } onClick={() => {
+            setSelectedWindow(document.getElementById("experiencesWindow"));
             setExperienceVisible(true);
           }} />
           <ToolbarShortcut id="about" title="About" icon="/information.svg" selected={
             aboutVisible
           } onClick={() => {
+            setSelectedWindow(document.getElementById("aboutWindow"));
             setAboutVisible(true);
           }} />
           <Box width={selectedPDF ? "55px" : "0px"} overflow="hidden" transition="all 1s">

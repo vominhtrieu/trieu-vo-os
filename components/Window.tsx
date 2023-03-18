@@ -3,6 +3,7 @@ import { Box, Image, Heading, Button } from "@chakra-ui/react";
 import { PropsWithChildren, useContext, useEffect, useRef, useState } from "react";
 
 export interface WindowProps {
+    id: string;
     icon?: string;
     title: string;
     visible: boolean;
@@ -10,25 +11,11 @@ export interface WindowProps {
     onClose: () => void;
 }
 
-export default function Window({ icon, title, visible, onClose, disableScroll = false, children }: PropsWithChildren<WindowProps>) {
+export default function Window({ id, icon, title, visible, onClose, disableScroll = false, children }: PropsWithChildren<WindowProps>) {
     const header = useRef<HTMLDivElement>(null);
     const windowComponent = useRef<HTMLDivElement>(null);
-    const { maxZIndex, setMaxZIndex } = useContext(SystemContext);
-    const [zIndex, setZIndex] = useState(maxZIndex);
+    const { setSelectedWindow } = useContext(SystemContext);
 
-    const refreshZIndex = () => {
-        if (windowComponent.current && zIndex !== maxZIndex) {
-            windowComponent.current.style.zIndex = (maxZIndex + 1) + "";
-            setZIndex(maxZIndex + 1);
-            setMaxZIndex(maxZIndex + 1);
-        }
-    };
-    useEffect(() => {
-        if (windowComponent.current && visible) {
-            refreshZIndex();
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [visible]);
     useEffect(() => {
         let listener: any = null;
         const headerRef = header.current;
@@ -62,6 +49,7 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
 
     return (
         <Box
+            id={id}
             ref={windowComponent}
             pointerEvents={visible ? "all" : "none"}
             draggable={false}
@@ -74,14 +62,13 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
             height="400px"
             borderRadius="15px"
             background="white"
-            zIndex={zIndex}
             overflow="hidden"
             border="1px solid #202020"
             boxShadow="0 0 10px 0 rgb(0 0 0 / 50%)"
             opacity={visible ? 1 : 0}
             transition="opacity 0.5s ease-in-out"
-            onClick={() => {
-                refreshZIndex();
+            onMouseDown={() => {
+                setSelectedWindow(windowComponent.current);
             }}
         >
             <Box
@@ -106,7 +93,7 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
                         alt="Icon"
                         marginRight={10}
                     />
-                    <Heading fontSize={20}>{title}</Heading>
+                    <Heading color="#fff" fontSize={20}>{title}</Heading>
                 </Box>
                 <Button
                     background="none"

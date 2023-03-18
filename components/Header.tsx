@@ -58,7 +58,7 @@ export default function Header() {
                 </Heading>
                 <Box display="flex" alignItems="center" gap={10}>
                     <Image src="/wifi.svg" width="25px" height="25px" alt="Menu icon" />
-                    <Text>{dateStr}</Text>
+                    <Text color="#fff">{dateStr}</Text>
                 </Box>
             </Box>
         </Box>
