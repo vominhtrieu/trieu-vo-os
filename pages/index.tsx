@@ -67,7 +67,7 @@ export default function Home() {
         backgroundPosition="center"
       >
         <DesktopShortcut
-          title="File Manager"
+          title="Finder"
           icon="/file-manager.svg"
           onClick={() => setFileManagerVisible(true)}
         />

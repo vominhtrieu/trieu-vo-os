@@ -30,10 +30,13 @@ export function DesktopShortcut({
       border="none"
       outline="none"
       flexDirection="column"
-      width="60px"
-      margin="20px 10px"
+      width="50px"
+      margin="5px"
       _active={{
         opacity: 0.9,
+      }}
+      _hover={{
+        cursor: "pointer",
       }}
       onClick={() => {
         if (onClick) onClick();

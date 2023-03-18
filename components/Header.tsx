@@ -12,7 +12,6 @@ export default function Header() {
             const year = date.getFullYear();
             const hours = date.getHours();
             const minutes = date.getMinutes();
-            const seconds = date.getSeconds();
             setDateStr(`${day}/${month}/${year} ${hours}:${minutes}`);
         }, 1000);
     }, [])

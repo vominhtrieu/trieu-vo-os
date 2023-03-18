@@ -18,6 +18,7 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
 
     const refreshZIndex = () => {
         if (windowComponent.current && zIndex !== maxZIndex) {
+            windowComponent.current.style.zIndex = (maxZIndex + 1) + "";
             setZIndex(maxZIndex + 1);
             setMaxZIndex(maxZIndex + 1);
         }
