@@ -32,13 +32,13 @@ export default function ToolbarMenu({ visible }: ToolbarMenuProps) {
             <Box color="#fff">
                 <Box display="flex" alignItems="center" marginBottom={10}>
                     <Box padding={5} borderRadius={10} background="rgba(255, 255, 255, 0.9)" width="45px" height="45px">
-                        <Image src="/menu.svg" width="35px" height="35px" />
+                        <Image src="/menu.svg" width="35px" height="35px" alt="Menu icon" />
                     </Box>
                     <Heading marginLeft={10}>Trieu Vo OS</Heading>
                 </Box>
                 <Text color="rgba(255,255,255,0.8)">
                     This is just my portfolio. <br />
-                    There're not real <i>Operation System</i> here.
+                    There&apos;re no real <i>Operation System</i> here.
                 </Text>
                 <Button
                     width="100%"

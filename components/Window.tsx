@@ -26,11 +26,13 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
         if (windowComponent.current && visible) {
             refreshZIndex();
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [visible]);
     useEffect(() => {
         let listener: any = null;
-        if (header.current) {
-            listener = header.current.addEventListener("mousedown", (e) => {
+        const headerRef = header.current;
+        if (headerRef) {
+            listener = headerRef.addEventListener("mousedown", (e) => {
                 if (windowComponent.current) {
                     const { clientX, clientY } = e;
                     const { offsetLeft, offsetTop } = windowComponent.current;
@@ -50,10 +52,11 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
             });
         }
         return () => {
-            if (header.current && listener !== null) {
-                header.current.removeEventListener("mousedown", listener);
+            if (headerRef && listener !== null) {
+                headerRef.removeEventListener("mousedown", listener);
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -99,6 +102,7 @@ export default function Window({ icon, title, visible, onClose, disableScroll = 
                         width="35"
                         height="35px"
                         src={icon || "/file-manager.svg"}
+                        alt="Icon"
                         marginRight={10}
                     />
                     <Heading fontSize={20}>{title}</Heading>

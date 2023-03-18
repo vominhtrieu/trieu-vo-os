@@ -5,7 +5,7 @@ export default function Experiences(props: WindowProps) {
     return (
         <Window icon="/office-building.svg" {...props}>
             <Box width="100%" display="flex">
-                <Image src="/KiteMetric.webp" width="190px" height="190px" />
+                <Image src="/KiteMetric.webp" width="190px" height="190px" alt="Kite Metric Logo" />
                 <Box padding="20px 0" width="100%" display="flex" alignItems="flex-start" flexDirection="column">
                     <Heading color="black" textAlign="center" marginBottom={2}>Kite Metric</Heading>
                     <Text color="rgba(0,0,0,0.8)" fontSize={16}><b>Role:</b> Software Engineer</Text>
@@ -28,7 +28,7 @@ export default function Experiences(props: WindowProps) {
                 </Box>
             </Box>
             <Box width="100%" display="flex">
-                <Image src="/PhenikaaMaaS.webp" width="150px" height="150px" margin="20px" />
+                <Image src="/PhenikaaMaaS.webp" width="150px" height="150px" margin="20px" alt="Phenikaa MaaS Logo" />
                 <Box padding="20px 0" width="100%" display="flex" alignItems="flex-start" flexDirection="column">
                     <Heading color="black" textAlign="center" marginBottom={2}>Phenikaa MaaS</Heading>
                     <Text color="rgba(0,0,0,0.8)" fontSize={16}><b>Role:</b> Backend Engineer</Text>
