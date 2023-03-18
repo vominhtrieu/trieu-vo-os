@@ -78,7 +78,7 @@ export default function Home() {
         overflow="hidden"
         backgroundImage="url('/wallpaper.jpg')"
         backgroundSize="cover"
-        backgroundPosition="center"
+        backgroundPosition="top"
       >
         <DesktopShortcut
           title="Finder"
