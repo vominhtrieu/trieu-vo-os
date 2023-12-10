@@ -12,9 +12,9 @@ export default function FileManager(props: WindowProps) {
       setFileManagerVisible(false);
     }}>
       <Box display="flex" flexWrap="wrap">
-        <DesktopShortcut title="CV" icon="/file.svg" textColor="black" onClick={() => {
+        <DesktopShortcut title="CV.pdf" icon="/file.svg" textColor="black" onClick={() => {
           setSelectedWindow(document.getElementById("pdfViewerWindow"));
-          setSelectedPDF("/cv.pdf")
+          setSelectedPDF("/CV.pdf")
         }} />
         <DesktopShortcut title="Gmail" icon="/gmail.svg" textColor="black" onClick={() => {
           window.open("mailto:minhtrieuvo600@gmail.com");

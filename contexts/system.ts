@@ -15,6 +15,8 @@ interface SystemContextType {
     setEducationVisible: (open: boolean) => void;
     experienceVisible: boolean;
     setExperienceVisible: (open: boolean) => void;
+    toolbarMenuVisible: boolean;
+    setToolbarMenuVisible: (open: boolean) => void;
 }
 
 const SystemContext = createContext<SystemContextType>({
@@ -32,6 +34,8 @@ const SystemContext = createContext<SystemContextType>({
     setEducationVisible: () => { },
     experienceVisible: false,
     setExperienceVisible: () => { },
+    toolbarMenuVisible: false,
+    setToolbarMenuVisible: () => { }
 });
 
 export default SystemContext;
